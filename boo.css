@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(img/anhNen.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    min-height: 100vh;
+}
+.container{
+    border: 2px solid rgba(255, 255, 255, .2);
+    width: 420px;
+    display: flex; 
+    justify-content: center;
+    backdrop-filter: blur(20px);
+    padding-bottom:40px ;
+    border-radius: 20px;
+}
+.form-row{
+    padding: 10px;
+    position: relative;
+    max-width: 500px;
+}
+.form-label{
+    min-width: 90px;
+}
+.form-btn{
+    display: flex ;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+.form-input {
+    text-indent: 35px;
+    color: #fff;
+    margin-top:10px ;
+    width: 390px;
+    height: 30px;
+    border-radius: 20px;
+    background: transparent;
+    outline: none;
+    background-color: rgba(255, 255, 255, );
+}
+.form{
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 50px;
+}
+.form-btn{
+    width: 100%;
+}
+button{
+ width: 300px;
+ height: 30px;
+ border-radius: 20px;
+ background: transparent;
+ color: #fff;
+}
+
+.form-a{
+    margin: 30px;
+}
+.eye{
+    position: absolute;
+    right: 20px;
+    top: 57%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    max-width: 20px;
+}
+.hidden{
+    display: none;
+}
+.lock{
+    position: absolute;
+    left: 20px;
+    top: 57%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    max-width: 20px;
+}
+@media screen and (max-width:748px){
+    #check{
+        width: 100%;
+        position: absolute;
+        left: -185px;
+    }
+    #form-label{
+        width: 100%;
+        margin-left: -100px;
+
+
+    }
+    .form-check{
+        padding: 5px;
+        /* width: 100%; */
+        display: flex;
+        flex-direction:row-reverse;
+        justify-content:left;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+    }
+    #btn{
+        width: 100%;
+        height: 50px;
+
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .form{
+        width: 100%;
+    }
+}
