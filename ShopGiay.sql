@@ -1,5 +1,5 @@
 -- CREATE DATABASE shop_giay;
--- USE shop_giay;
+USE shop_giay;
 
 -- -- ================= USERS =================
 -- CREATE TABLE Users (
@@ -47,3 +47,7 @@
 
 insert into Users values
 (2,'kaduong230@gmail.com','123');
+
+
+ALTER TABLE products
+MODIFY image VARCHAR(100);

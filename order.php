@@ -1,31 +1,51 @@
-<?php include "config.php"; ?>
-
 <?php
-if (isset($_POST['order'])) {
-    $user_id = $_SESSION['user_id'];
-    $address = $_POST['address'];
-    $phone = $_POST['phone'];
+include "config.php";
 
-    // tính tổng tiền
-    $result = $conn->query("
-        SELECT Cart.*, Products.price 
-        FROM Cart 
-        JOIN Products ON Cart.product_id = Products.id
-        WHERE user_id = $user_id
-    ");
-
-    $total = 0;
-    while ($row = $result->fetch_assoc()) {
-        $total += $row['price'] * $row['quantity'];
-    }
-
-    // lưu order
-    $conn->query("INSERT INTO Orders(user_id, address, phone, total_price)
-                  VALUES($user_id, '$address', '$phone', $total)");
-
-    // xoá giỏ hàng
-    $conn->query("DELETE FROM Cart WHERE user_id = $user_id");
-
-    echo "Đặt hàng thành công!";
+if(!isset($_POST['selected'])){
+    echo "Bạn chưa chọn sản phẩm";
+    exit();
 }
+
+$email = $_SESSION['email'];
+
+$address = $_POST['address'];
+$phone = $_POST['phone'];
+
+$order_id = "OD" . time();
+
+// tạo đơn hàng
+$sqlOrder = "INSERT INTO orders(id,email,address,phone)
+VALUES('$order_id','$email','$address','$phone')";
+
+$conn->query($sqlOrder);
+
+// duyệt sản phẩm được chọn
+foreach($_POST['selected'] as $cart_id){
+
+    $sqlCart = "SELECT * FROM cart WHERE id = '$cart_id'";
+    $result = $conn->query($sqlCart);
+
+    if($result->num_rows > 0){
+
+        $row = $result->fetch_assoc();
+
+        $MaSP = $row['MaSP'];
+        $soluong = $row['soluong'];
+        $price = $row['ThanhTien'];
+
+        // thêm chi tiết đơn hàng
+        $sqlDetail = "INSERT INTO order_details
+        (order_id, MaSP, soluong, price)
+        VALUES
+        ('$order_id','$MaSP','$soluong','$price')";
+
+        $conn->query($sqlDetail);
+
+        // xóa khỏi giỏ hàng
+        $conn->query("DELETE FROM cart WHERE id='$cart_id'");
+    }
+}
+
+header("Location: ChiTietDatHang.php?id=$order_id");
+exit();
 ?>

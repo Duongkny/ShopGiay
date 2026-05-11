@@ -26,7 +26,7 @@ $result = $conn->query($sql);
 
 <body>
     <div class="app">
-       <header>
+        <header>
 
         <nav>
 
@@ -154,7 +154,7 @@ $result = $conn->query($sql);
 
 
 
-        $sql = "SELECT * FROM Products WHERE loai = 'TheThao'";
+        $sql = "SELECT * FROM Products WHERE loai = 'ThoiTrang'";
         $result = $conn->query($sql);
         $sqlUser = "SELECT * FROM Users WHERE email = '" . $_SESSION['email'] . "'";
         $resultUser = $conn->query($sqlUser);
@@ -184,9 +184,6 @@ $result = $conn->query($sql);
                                 <input type="number" class="number" name="SoLuong" value="1" min="1">
 
                                 <input type="submit" class="button" value="Thêm vào giỏ hàng">
-                               <a href="ChiTietDonHang.php?MaSP=<?php echo $row['MaSP']; ?>">
-            Xem chi tiết
-        </a>
                             </form>
                         </div>
                 <?php
