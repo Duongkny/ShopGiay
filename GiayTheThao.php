@@ -166,29 +166,30 @@ $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
                 ?>
                         <div class="column">
-                            <h2><?php echo $row['TenSP']; ?></h2>
+    <img src="img/<?php echo $row['image']; ?>">
 
-                            <img src="img/<?php echo $row['image']; ?>" class="drink-image">
+    <h2><?php echo $row['TenSP']; ?></h2>
 
-                            <p><?php echo $row['price']; ?></p>
-                            <p>Số lượng hiện tại: <?php echo $row['soluong']; ?></p>
+    <p>Giá: <?php echo number_format($row['price']); ?>đ</p>
+    <p>Còn: <?php echo $row['soluong']; ?> sản phẩm</p>
 
-                            <!-- ✅ FORM RIÊNG CHO TỪNG SẢN PHẨM -->
-                            <form action="" method="post">
-                                <input type="hidden" name="MaSP" value="<?php echo $row['MaSP']; ?>">
-                                <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-                                <input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>">
-                                <label for="">Size</label>
-                                 <input type="number" class="number" name="size" value="37" min="37" max="45">
-                                 <label for="">Số lượng</label>
-                                <input type="number" class="number" name="SoLuong" value="1" min="1">
+    <form method="post">
+        <input type="hidden" name="MaSP" value="<?php echo $row['MaSP']; ?>">
+        <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+        <input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>">
 
-                                <input type="submit" class="button" value="Thêm vào giỏ hàng">
-                               <a href="ChiTietDonHang.php?MaSP=<?php echo $row['MaSP']; ?>">
-            Xem chi tiết
-        </a>
-                            </form>
-                        </div>
+        <div>
+            Size: <input type="number" class="number" name="size" value="37">
+            SL: <input type="number" class="number" name="SoLuong" value="1">
+        </div>
+
+        <input type="submit" class="button" value="Thêm vào giỏ hàng">
+    </form>
+
+    <a href="ChiTietDonHang.php?MaSP=<?php echo $row['MaSP']; ?>">
+        Xem chi tiết
+    </a>
+</div>
                 <?php
                     }
                 }
