@@ -304,7 +304,7 @@ nav ul li a:hover {
 
 /* ITEM */
 .dropdown-content a {
-    color: red;
+    color: black;
     padding: 12px;
     display: block;
 }
