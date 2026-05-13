@@ -26,101 +26,40 @@ $result = $conn->query($sql);
 
 <body>
     <div class="app">
-       <header>
+      <header>
 
-        <nav>
+       <nav>
+    <ul>
 
-            <ul>
+        <li><a href="home.php">Home</a></li>
 
-                <li>
-                    <a href="home.php">
-                        Home
-                    </a>
-                </li>
+        <li class="dropdown">
+            <a href="GiayThoiTrang.php">Giày thời trang</a>
+            <div class="dropdown-content">
+                <a href="GiayThoiTrang.php">Xem tất cả</a>
+            </div>
+        </li>
 
-                <div class="drowdown">
+        <li class="dropdown">
+            <a href="GiayTheThao.php">Giày thể thao</a>
+            <div class="dropdown-content">
+                <a href="GiayTheThao.php">Xem tất cả</a>
+            </div>
+        </li>
 
-                    <li class="dropbtn">
+        <li><a href="DonHang.php">Đơn hàng</a></li>
+        <li><a href="cart.php">Giỏ hàng</a></li>
 
-                        <a href="GiayThoiTrang.php">
-                            Giày thời trang
-                        </a>
+        <li class="dropdown">
+            <a href="#">Tài khoản</a>
+            <div class="dropdown-content">
+                <a href="ThongTinCaNhan.php">Thông tin tài khoản</a>
+                <a href="login.php">Đăng xuất</a>
+            </div>
+        </li>
 
-                    </li>
-
-                    <div class="dropdown-content">
-
-                        <a href="GiayThoiTrang.php">
-                            Xem tất cả
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="drowdown">
-
-                    <li class="dropbtn">
-
-                        <a href="GiayTheThao.php">
-                            Giày thể thao
-                        </a>
-
-                    </li>
-
-                    <div class="dropdown-content">
-
-                        <a href="GiayTheThao.php">
-                            Xem tất cả
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <li>
-
-                    <a href="DonHang.php">
-                        Đơn hàng
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a href="cart.php">
-                        Giỏ hàng
-                    </a>
-
-                </li>
-
-                <div class="drowdown">
-
-                    <li class="dropbtn">
-
-                        <a href="#">
-                            Tài khoản
-                        </a>
-
-                    </li>
-
-                    <div class="dropdown-content">
-
-                        <a href="#">
-                            Thông tin tài khoản
-                        </a>
-
-                        <a href="login.php">
-                            Đăng xuất
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </ul>
-
-        </nav>
+    </ul>
+</nav>
 
     </header>
         <?php
