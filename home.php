@@ -1,7 +1,7 @@
 <?php
 include "config.php";
 
-$sql = "SELECT * FROM Users WHERE email = '" . $_SESSION['email'] . "'";
+$sql = "SELECT hoten FROM Users WHERE email = '" . $_SESSION['email'] . "'";
 $result = $conn->query($sql);
 ?>
 
@@ -77,7 +77,7 @@ $result = $conn->query($sql);
 
                     $row = $result->fetch_assoc();
 
-                    echo $row['email'];
+                    echo $row['hoten'];
 
                 } else {
 

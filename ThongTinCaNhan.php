@@ -59,6 +59,8 @@ $user = $result->fetch_assoc();
 
     <p><b>Email:</b> <?php echo $user['email']; ?></p>
 
+   <p><b>Họ và tên:</b> <?php echo isset($user['Hoten']) ? $user['Hoten'] : 'Chưa có'; ?></p>
+
     <p><b>Mật khẩu:</b> ******</p>
 
     <p><b>Địa chỉ:</b> <?php echo isset($user['address']) ? $user['address'] : 'Chưa có'; ?></p>

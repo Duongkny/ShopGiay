@@ -16,7 +16,8 @@ $user = $result->fetch_assoc();
 
 // ================= XỬ LÝ UPDATE =================
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
+    
+    $hoten = $_POST['hoten'];
     $address = $_POST['address'];
     $phone = $_POST['phone'];
 
@@ -35,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     // update info
-    $sqlUpdate = "UPDATE users SET address='$address', phone='$phone' WHERE email='$email'";
+    $sqlUpdate = "UPDATE users SET hoten='$hoten', address='$address', phone='$phone' WHERE email='$email'";
 
     if($conn->query($sqlUpdate)){
         echo "<script>alert('Cập nhật thành công'); window.location='ThongTinCaNhan.php';</script>";
@@ -95,18 +96,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <!-- HIỂN THỊ -->
     <div class="info">
         <p><b>Email:</b> <?php echo $user['email']; ?></p>
+        <p><b>Họ và tên:</b> <?php echo $user['Hoten'] ?? 'Chưa có'; ?></p>
         <p><b>Địa chỉ:</b> <?php echo $user['address'] ?? 'Chưa có'; ?></p>
         <p><b>SĐT:</b> <?php echo $user['phone'] ?? 'Chưa có'; ?></p>
     </div>
 
     <!-- FORM SỬA -->
     <form method="post">
+        <label for="hoten">Họ và tên</label>
+        <input type="text" name="hoten" id="hoten" value="<?php echo $user['Hoten'] ?? 'Chưa có'; ?>">
 
         <label>Địa chỉ</label>
-        <input type="text" name="address" value="<?php echo $user['address']; ?>">
+        <input type="text" name="address" value="<?php echo $user['address'] ?? 'Chưa có'; ?>">
 
         <label>SĐT</label>
-        <input type="text" name="phone" value="<?php echo $user['phone']; ?>">
+        <input type="text" name="phone" value="<?php echo $user['phone'] ?? 'Chưa có'; ?>">
 
         <h3>Đổi mật khẩu</h3>
 

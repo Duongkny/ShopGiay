@@ -9,9 +9,12 @@
 <?php
 if (isset($_POST['register'])) {
     $email = $_POST['email'];
+    $hoten = $_POST['hoten'];
+    $diachi = $_POST['diachi'];
+    $sodienthoai = $_POST['sodienthoai'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO Users(email, password) VALUES('$email', '$password')";
+    $sql = "INSERT INTO Users(email, password, address, phone, hoten) VALUES('$email', '$password', '$diachi', '$sodienthoai', '$hoten')";
     $conn->query($sql);
 
     echo "<script>alert('Đăng ký thành công!'); window.location='login.php';</script>";
@@ -33,6 +36,24 @@ if (isset($_POST['register'])) {
             <h1>User logout</h1>
             <div class="form-row">
                 <input type="text" name="email" id="tk" class="form-input"  placeholder="Tên đăng nhập" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lock">
+                    <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z" clip-rule="evenodd" />
+                  </svg>   
+            </div>
+             <div class="form-row">
+                <input type="text" name="hoten" id="tk" class="form-input"  placeholder="Họ và tên" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lock">
+                    <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z" clip-rule="evenodd" />
+                  </svg>   
+            </div>
+             <div class="form-row">
+                <input type="text" name="diachi" id="tk" class="form-input"  placeholder="Địa chỉ" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lock">
+                    <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z" clip-rule="evenodd" />
+                  </svg>   
+            </div>
+             <div class="form-row">
+                <input type="text" name="sodienthoai" id="tk" class="form-input"  placeholder="Số điện thoại" >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lock">
                     <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z" clip-rule="evenodd" />
                   </svg>   
