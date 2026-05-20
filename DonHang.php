@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 <html lang="vi">
 
 <head>
-
+<link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
 
     <title>Đơn hàng của tôi</title>
@@ -110,6 +110,42 @@ $result = $conn->query($sql);
 </head>
 
 <body>
+      <header>
+
+       <nav>
+    <ul>
+
+        <li><a href="home.php">Home</a></li>
+
+        <li class="dropdown">
+            <a href="GiayThoiTrang.php">Giày thời trang</a>
+            <div class="dropdown-content">
+                <a href="GiayThoiTrang.php">Xem tất cả</a>
+            </div>
+        </li>
+
+        <li class="dropdown">
+            <a href="GiayTheThao.php">Giày thể thao</a>
+            <div class="dropdown-content">
+                <a href="GiayTheThao.php">Xem tất cả</a>
+            </div>
+        </li>
+
+        <li><a href="DonHang.php">Đơn hàng</a></li>
+        <li><a href="cart.php">Giỏ hàng</a></li>
+
+        <li class="dropdown">
+            <a href="#">Tài khoản</a>
+            <div class="dropdown-content">
+                <a href="ThongTinCaNhan.php">Thông tin tài khoản</a>
+                <a href="login.php">Đăng xuất</a>
+            </div>
+        </li>
+
+    </ul>
+</nav>
+
+    </header>
 
 <div class="container">
 
@@ -216,6 +252,7 @@ $result = $conn->query($sql);
     </table>
 
 </div>
+
 
 </body>
 
